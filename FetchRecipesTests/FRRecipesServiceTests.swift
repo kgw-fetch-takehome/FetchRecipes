@@ -26,7 +26,7 @@ final class FRRecipesServiceTests: XCTestCase {
         let goodRecipes = try await FRRecipesService.fetchRecipes()
         XCTAssert(!goodRecipes.isEmpty, "no recipes returned")
         
-        // Confirm all expected data present
+        // Confirm all required data present
         let numRecipes = goodRecipes.count
         var count = goodRecipes.reduce(0) { $0 + ($1.cuisine.isEmpty ? 0 : 1) }
         XCTAssertEqual(count, numRecipes, "missing cuisine values")

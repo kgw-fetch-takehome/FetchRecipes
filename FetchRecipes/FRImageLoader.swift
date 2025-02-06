@@ -22,7 +22,6 @@ actor FRImageLoader {
     private var cacheMap: [URL: ImageData]?
 
     private init() {
-        // Load map from disk
     }
     
     func loadImage(from url: URL) async throws -> UIImage? {
