@@ -22,6 +22,15 @@ actor FRImageLoader {
     private var cacheMap: [URL: ImageData]?
 
     private init() {
+        NotificationCenter.default.addObserver(self, selector: #selector(movingToBackground), name: UIApplication.willResignActiveNotification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(movingToBackground), name: UIApplication.willTerminateNotification, object: nil)
+    }
+    
+    @objc nonisolated
+    private func movingToBackground() {
+        Task {
+            await saveMapToDisk()
+        }
     }
     
     func loadImage(from url: URL) async throws -> UIImage? {
