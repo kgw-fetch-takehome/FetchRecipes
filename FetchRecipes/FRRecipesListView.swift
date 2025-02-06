@@ -122,7 +122,7 @@ struct FRRecipesListView: View {
             .overlay {
                 if viewModel.loadingState.isLoading() {
                     ZStack {
-                        Color.white.opacity(0.8)
+                        Color.background(opacity:0.8)
                         ProgressView()
                     }
                     .scaleEffect(x: 2, y: 2, anchor: .center)

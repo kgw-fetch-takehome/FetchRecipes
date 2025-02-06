@@ -50,7 +50,7 @@ struct FRRecipeDetail: View {
         GeometryReader { geometry in
             ZStack {
                 Rectangle()
-                    .fill(Color.white.opacity(0.95))
+                    .fill(Color.background(opacity:0.95))
                     .frame(width: geometry.size.width, height: geometry.size.height)
                     .onTapGesture {
                         // dismiss detail
